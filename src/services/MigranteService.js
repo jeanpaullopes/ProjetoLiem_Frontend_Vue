@@ -2,7 +2,7 @@
 export default {
     buscaMigrante(id) {
 
-        return {	
+        let obj = {	
             id:	id,
             nome:	"Ana Maria",
             email:	"maria@gmail.com",
@@ -55,6 +55,8 @@ export default {
             dataFim:	"30/06/2021",
             duracao:	"6 meses"}]
             }
+            console.log(obj)
+            return obj;
         //return apiClient.get('/migrentes/'+id)
     }
 

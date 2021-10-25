@@ -1,46 +1,61 @@
 <template>
   <form action="#">
-    {{dado}}
-    {{dado.nome}}
-      nome <input v-model="dado.nome"/>
- <!-- 
-      <p>email: {{migranteData.email}}</p>    
-      <p>telefone: {{migranteData.telefone}}</p> 
-     
-      idiomas: <button type="button" @click="addIdioma">+</button><br/>
-      <div v-for="idioma in migranteData.idiomas" :key="idioma">
-         <input :value='idioma'/>
-      </div>
-      -->
+    Nome:
+    <input v-model="dado.nome"/>
+    <br/>
+    email:
+    <input type="email" v-model="dado.email"/>
+    <br/>
+    telefone:
+    <input type="tel" v-model="dado.telefone"/>
+    <br/>
+    idioma:
+    <button type="button" @click="addIdioma">+ idioma</button>
+    <div v-for="idm in dado.idiomas" :key="idm">
+      <input readonly :value="idm"/>
+    </div>
+    <button type="button" @click="addFormacao">+ formação</button>
+    <div v-for="formacao in dado.formacoes" :key="formacao">
+      <formacao-form :formacao="formacao" />
+    </div>
+    
 
   </form>
 </template>
 
 <script>
+import FormacaoForm from './FormacaoForm.vue';
 export default {
+  components: { FormacaoForm },
     name: "MigranteForm",
-    data(){ return {
-         dado: Object
-    }
-    },
+    data() {
+    return {
+      dado: Object,
+      idiomas:["Português", "English", "Francoise", "Italiano", "Turco"]
+      
+    };
+  },
     props: {
-        migrante: Object
+        detail: Object
+    },
+    setup(){
+      
+      
     },
     created() {
-      console.log(this.migrante.nome)
-      console.log(this.dado.nome)
-      this.dado = this.migrante
-      console.log(this.dado.nome)
+      console.log(this.detail)
+      console.log(this.dado)
+      this.dado = this.detail
       
+    },
+    methods:{
+      addIdioma(){
+        this.dado.idiomas.push("")
+      },
+      addFormacao(){
+        this.dado.formacoes.push({curso:"", area:"", descricao:""})
+      }
     }
-    //,
-    //methods:{
-    //  addIdioma(){
-    //    console.log(this.migranteData)
-    //    console.log(this.migranteData.idiomas)
-    //    this.migranteData.idiomas.push("")
-    //  }
-    //}
 
 }
 </script>

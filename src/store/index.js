@@ -13,11 +13,13 @@ export default createStore({
   actions: {},
   getters: {
     getMigrante: async (state) => {
+      let migr
       if (state.migrante == null) {
-        let migr = await MigranteService.buscaMigrante('616c6c0295fa1b1e2f437fce')
-        state.migrante = migr
+        migr = await MigranteService.buscaMigrante('616c6c0295fa1b1e2f437fce')
+        //state.migrante = migr
       }
-      return state.migrante
+      console.log(migr)
+      return migr //state.migrante
     }, 
   },
   modules: {},
