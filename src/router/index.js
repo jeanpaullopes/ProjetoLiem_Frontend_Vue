@@ -12,6 +12,30 @@ const routes = [
     component: () =>
     import(/* webpackChunkName: "about" */ "../views/EditMigrante.vue"),
 },
+{
+  path: "/newMigrante",
+  name: "newMigrante",
+  component: () =>
+  import(/* webpackChunkName: "about" */ "../views/newMigrante.vue"),
+},
+{
+  path: "/loginMigrante",
+  name: "loginMigrante",
+  component: () =>
+  import(/* webpackChunkName: "about" */ "../views/loginMigrante.vue"),
+},
+{
+  path: "/newEmpresa",
+  name: "newEmpresa",
+  component: () =>
+  import(/* webpackChunkName: "about" */ "../views/newEmpresa.vue"),
+},
+{
+  path: "/loginEmpresa",
+  name: "loginEmpresa",
+  component: () =>
+  import(/* webpackChunkName: "about" */ "../views/loginEmpresa.vue"),
+},
   {
     path: "/about",
     name: "About",

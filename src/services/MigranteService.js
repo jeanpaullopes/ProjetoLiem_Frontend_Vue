@@ -1,7 +1,7 @@
-//import apiClient from './ApiClient'
+import apiClient from './ApiClient'
 export default {
     buscaMigrante(id) {
-
+/*
         let obj = {	
             id:	id,
             nome:	"Ana Maria",
@@ -57,7 +57,8 @@ export default {
             }
             console.log(obj)
             return obj;
-        //return apiClient.get('/migrentes/'+id)
+            */
+        return apiClient.get('/migrantes/'+id)
     }
 
 }
